@@ -1,7 +1,14 @@
-#include "../include/repl.hpp"
+#include "../include/habit_manager.hpp"
 
-void repl::init()
+void habit_manager::init()
 {
+    
+    bool save_file_found = false;
+    if (save_file_found) {
+        //TODO: implement file reading functions
+    } else {
+        std::cout << "No file found. Starting new session." << std::endl;
+    }
     while (this->state != repl_state::EXIT)
     {
         switch (this->state)
@@ -29,13 +36,14 @@ void repl::init()
     }
 }
 
-void repl::read()
+void habit_manager::read()
 {
+    std::cout << "> "; // print prompt
     std::getline(std::cin, this->in_buffer);
     this->state = repl_state::EXECUTE;
 }
 
-void repl::execute()
+void habit_manager::execute()
 {
     if (this->in_buffer == "exit")
     {
@@ -47,7 +55,7 @@ void repl::execute()
         this->state = repl_state::PRINT;
     }
 }
-void repl::print()
+void habit_manager::print()
 {
     std::cout << this->out_buffer << std::endl;
     this->out_buffer = "";

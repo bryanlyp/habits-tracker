@@ -1,9 +1,10 @@
-#include "../include/repl.hpp"
+#include "../include/habit_manager.hpp"
 
 
 int main(void)
 {
-    repl r;
-    r.init();
+    habit_manager hm;
+    hm.init();
+
     return 0;
 }
